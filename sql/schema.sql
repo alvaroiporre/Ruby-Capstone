@@ -4,3 +4,10 @@ CREATE TABLE book (
   cover_state varchar(150)
 );
 
+CREATE TABLE label(
+  id SERIAL,
+  title varchar(150),
+  color varchar(150),
+  PRIMARY KEY (id)
+);
+
