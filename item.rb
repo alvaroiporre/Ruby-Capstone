@@ -5,7 +5,7 @@ class Item
   attr_reader :publish_date
 
   def initialize(publish_date)
-    @id = 1...1000
+    @id = rand(0..1000)
     @publish_date = publish_date
     @archived = false
     @genre = nil
