@@ -32,4 +32,13 @@ class App
       end
     end
   end
+
+  def add_item_book()
+    publisher = input_getter('Please enter the publisher: ')
+    cover_state = input_getter('Describe the cover state of the book: ')
+    publish_date = input_getter('published date (yyyy-mm-dd): ')
+    @books << Book.new(Date.new(publish_date.to_i), publisher, cover_state)
+    inputs(@books.last)
+    puts ['Book created succesfully', '']
+  end
 end
