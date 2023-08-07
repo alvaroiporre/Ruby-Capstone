@@ -20,5 +20,15 @@ class App
       end
     end
   end
-  
+
+  def list_all_labels
+    if @labels.empty?
+      puts 'There are not labels created yet'
+    else
+      @labels.each do |label|
+        print "Title: '#{label.title}, Color: '#{label.color}'"
+        puts ''
+      end
+    end
+  end
 end
