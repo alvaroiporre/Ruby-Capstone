@@ -1,7 +1,8 @@
 class App
-  attr_accessor :books, :labels
+  attr_accessor :books, :labels, :storage
 
   def initialize()
+    @storage = Storage.new('storage')
     @books = []
     @labels = []
     @functions = {
