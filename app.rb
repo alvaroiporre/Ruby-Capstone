@@ -1,5 +1,5 @@
 class App
-  attr_accessor :books, :labels 
+  attr_accessor :books, :labels
 
   def initialize()
     @books = []
