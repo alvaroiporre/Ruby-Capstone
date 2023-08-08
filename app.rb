@@ -25,6 +25,11 @@ class App
   def trigger(int)
     send(@functions[int])
   end
+
+  def input_getter(msj, is_number: false)
+    print msj
+    is_number ? gets.chomp.to_i : gets.chomp
+  end 
   
   def list_all_books
     if @books.empty?
