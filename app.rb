@@ -5,13 +5,19 @@ class App
     @storage = Storage.new('storage')
     @books = []
     @games = []
+    @genres = []
+    @music_albums = []
     @authors = []
     @labels = []
     @functions = {
       1 => :list_all_books,
-      2 => :list_all_games,
+      2 => :list_all_music_albums,
+      3 => :list_all_games,
+      4 => :list_all_genres,
       5 => :list_all_labels,
       6 => :list_all_authors,
+      7 => :add_item_book,
+      8 => :add_music_album,
       9 => :add_item_game
     }
   end
@@ -26,6 +32,15 @@ class App
       end
     end
   end
+  def list_all_music_albums
+    if @music_albums.empty?
+      puts 'There are no music albums created yet'
+    else
+      @music_albums.each_with_index do |album, i|
+        puts "- #{i+1} Publish Date:#{album.publish_date} On Spotift: #{album.on_spotify}"
+      end
+    end
+  end
 
   def list_all_games
     if @games.empty?
@@ -33,6 +48,16 @@ class App
     else
       @games.each do |game|
         puts "Title: '#{game.label.title}, Author: '#{game.author.first_name}'\n"
+      end
+    end
+  end
+
+  def list_all_genres
+    if @genres.empty?
+      puts 'There are no genres created yet'
+    else
+      @genres.each_with_index do |genre, i|
+        puts "- #{i+1} Name: '#{genre.name}"
       end
     end
   end
@@ -66,6 +91,13 @@ class App
     inputs(@books.last)
     puts ['Book created succesfully', '']
   end
+  
+    def add_music_album
+      publish_date = input_getter('enter the published date (yyyy-mm-dd): ')
+      on_spotify = input_getter('Is it available on Spotify? [N/Y]')
+      @music_albums = MusicAlbum.new(publish_date, on_spotify)
+      puts "Music album created succesfully \n"
+    end
 
   def add_item_game()
     multiplayer = input_getter('Please enter the multiplayer: ')
