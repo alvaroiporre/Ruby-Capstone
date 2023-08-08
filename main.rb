@@ -9,11 +9,11 @@ require './book'
 require './label'
 require './storage'
 require 'json'
-require './Main_methods'
+require './main_methods'
 
 puts 'Welcome to Catalog of my things!'
 
-includde Main_methods
+include MainMethods
 
 def read_files(app)
   @app.storage.retrieve_data(app)

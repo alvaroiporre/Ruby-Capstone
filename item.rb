@@ -31,6 +31,11 @@ class Item
     label.add_item(self)
   end
 
+  def add_genre(genre)
+    new_genre = Genre.new(genre)
+    new_genre.add_item(self)
+  end
+
   def add_author(first_name, last_name)
     author = Author.new(first_name, last_name)
     author.add_item(self)

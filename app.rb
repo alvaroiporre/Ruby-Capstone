@@ -42,7 +42,7 @@ class App
     item.add_label(label, color)
     @labels << item.label
     @authors << item.author
-    @genre << item.genre
+    @genres << item.genre
   end
 
   def list_all_books
@@ -119,7 +119,8 @@ class App
   def add_music_album
     publish_date = input_getter('enter the published date (yyyy-mm-dd): ')
     on_spotify = input_getter('Is it available on Spotify? [N/Y]')
-    @music_albums = MusicAlbum.new(publish_date, on_spotify)
+    @music_albums << MusicAlbum.new(publish_date, on_spotify)
+    inputs(@music_albums.last)
     puts "Music album created succesfully \n"
   end
 
@@ -128,6 +129,7 @@ class App
     last_played_at = input_getter('Please enter the date of the last played : ')
     publish_date = input_getter('published date (yyyy-mm-dd): ')
     @games << Game.new(Date.new(publish_date.to_i), multiplayer, Date.new(last_played_at.to_i))
+    inputs(@games.last)
     puts ['Game created succesfully', '']
   end
 end

@@ -15,7 +15,7 @@ class Storage
   end
 
   def retrieve_books(app)
-    file = read('./storage/books.json')
+    file = read('books.json')
     return if file.nil?
 
     file.each do |obj|
@@ -34,7 +34,7 @@ class Storage
   end
 
   def retrieve_labels(app)
-    file = read('./storage/labels.json')
+    file = read('labels.json')
     return if file.nil?
 
     file.each do |obj|
@@ -46,7 +46,7 @@ class Storage
   end
 
   def retrive_music_albums(app)
-    file = read('./storage/music_albums.json')
+    file = read('music_albums.json')
     return if file.nil?
 
     file.each do |obj|
@@ -58,7 +58,7 @@ class Storage
   end
 
   def retrive_genres(app)
-    file = read('./storage/genres.json')
+    file = read('genres.json')
     return if file.nil?
 
     file.each do |obj|
@@ -69,7 +69,7 @@ class Storage
   end
 
   def retrieve_authors(app)
-    file = read('./storage/authors.json')
+    file = read('authors.json')
     return if file.nil?
 
     file.each do |obj|
@@ -81,7 +81,7 @@ class Storage
   end
 
   def retrieve_games(app)
-    file = read('./storage/games.json')
+    file = read('games.json')
     return if file.nil?
 
     file.each do |obj|
@@ -106,12 +106,24 @@ class Storage
     retrive_music_albums(app)
   end
 
+  def item_to_json(item)
+    json_obj = {}
+    item.instance_variables.each do |var|
+      json_obj[var.to_s.gsub('@', '')] = if item.instance_variable_get(var).instance_variables.empty?
+                                           item.instance_variable_get(var)
+                                         else
+                                           item_to_json(item.instance_variable_get(var))
+                                         end
+    end
+    json_obj
+  end
+
   def create_file(array, name)
     array_hash = []
     array.each do |item|
       array_hash << item_to_json(item)
     end
     json = array_hash.to_json
-    File.write("./#{@relative_path}/#{name}", json)
+    File.write("#{name}", json)
   end
 end
