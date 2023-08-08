@@ -1,5 +1,5 @@
 class App
-  attr_accessor :books, :games, :authors, :labels, :storage
+  attr_accessor :books, :games, :genres, :music_albums, :authors, :labels, :storage
 
   def initialize()
     @storage = Storage.new('storage')
