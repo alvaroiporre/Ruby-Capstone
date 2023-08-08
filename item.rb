@@ -24,4 +24,9 @@ class Item
   def move_to_archive()
     @archived = can_be_archived?
   end
+
+  def add_label(label_name, label_color)
+    label = Label.new(label_name, label_color)
+    label.add_item(self)
+  end
 end
