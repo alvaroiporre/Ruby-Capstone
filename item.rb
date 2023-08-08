@@ -1,7 +1,6 @@
 require_relative 'author'
 require 'date'
 
-
 class Item
   attr_accessor :genre, :author, :label
   attr_reader :publish_date
