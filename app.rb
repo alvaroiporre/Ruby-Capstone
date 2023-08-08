@@ -1,5 +1,9 @@
+require_relative 'main_methods'
+
 class App
   attr_accessor :books, :games, :genres, :music_albums, :authors, :labels, :storage
+
+  include MainMethods
 
   def initialize()
     @storage = Storage.new('storage')
@@ -20,6 +24,15 @@ class App
       8 => :add_music_album,
       9 => :add_item_game
     }
+  end
+
+  def options
+    puts ['', 'Please choose an option by entering a number:']
+    puts ['1 - List all books', '2 - List all music albums']
+    puts ['3 - List of games', '4 - List all genres', '5 - List all labels']
+    puts ['6 - List all authors', '7 - Add a book']
+    puts ['8 - Add a music album', '9 - Add a game']
+    puts ['10 - Exit']
   end
 
   def trigger(int)

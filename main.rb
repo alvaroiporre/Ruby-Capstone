@@ -1,6 +1,6 @@
 require './game'
 require './author'
-require './app'
+require_relative 'app'
 require './item'
 require './music_album'
 require './genre'
@@ -9,11 +9,8 @@ require './book'
 require './label'
 require './storage'
 require 'json'
-require './main_methods'
 
 puts 'Welcome to Catalog of my things!'
-
-include MainMethods
 
 def read_files(app)
   @app.storage.retrieve_data(app)
@@ -32,7 +29,7 @@ def main
     @app = App.new
     read_files(@app)
   end
-  options
+  @app.options
   option = gets.chomp.to_i
   valid_options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   if valid_options.include?(option)
