@@ -1,3 +1,5 @@
+require_relative 'author'
+require_relative 'game'
 require 'json'
 
 class Storage
@@ -43,8 +45,40 @@ class Storage
     end
   end
 
+  def retrieve_authors(app)
+    file = read('./storage/authors.json')
+    return if file.nil?
+
+    file.each do |obj|
+      first_name = obj['first_name']
+      last_name = obj['last_name']
+      author = Label.new(first_name, last_name)
+      app.authors << author
+    end
+  end
+
+  def retrieve_games(app)
+    file = read('./storage/games.json')
+    return if file.nil?
+
+    file.each do |obj|
+      publish_date = obj['publish_date']
+      multiplayer = obj['multiplayer']
+      last_played_at = obj['last_played_at']
+      label = obj['label']
+      author = obj['author']
+      game = Game.new(Date.new(publish_date.to_i), multiplayer, last_played_at)
+      app.games << game
+      game.add_label(label['title'], label['color'])
+      game.add_author(author['first_name'], author['last_name'])
+      app.authors << book.author unless app.authors.include?(book.author)
+      app.labels << book.label unless app.labels.include?(book.label)
+    end
+  end
+
   def retrieve_data(app)
     retrieve_books(app)
+    retrieve_games(app)
   end
 
   def create_file(array, name)
