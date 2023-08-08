@@ -32,12 +32,13 @@ class App
       end
     end
   end
+
   def list_all_music_albums
     if @music_albums.empty?
       puts 'There are no music albums created yet'
     else
       @music_albums.each_with_index do |album, i|
-        puts "- #{i+1} Publish Date:#{album.publish_date} On Spotift: #{album.on_spotify}"
+        puts "- #{i + 1} Publish Date:#{album.publish_date} On Spotift: #{album.on_spotify}"
       end
     end
   end
@@ -57,7 +58,7 @@ class App
       puts 'There are no genres created yet'
     else
       @genres.each_with_index do |genre, i|
-        puts "- #{i+1} Name: '#{genre.name}"
+        puts "- #{i + 1} Name: '#{genre.name}"
       end
     end
   end
@@ -91,13 +92,13 @@ class App
     inputs(@books.last)
     puts ['Book created succesfully', '']
   end
-  
-    def add_music_album
-      publish_date = input_getter('enter the published date (yyyy-mm-dd): ')
-      on_spotify = input_getter('Is it available on Spotify? [N/Y]')
-      @music_albums = MusicAlbum.new(publish_date, on_spotify)
-      puts "Music album created succesfully \n"
-    end
+
+  def add_music_album
+    publish_date = input_getter('enter the published date (yyyy-mm-dd): ')
+    on_spotify = input_getter('Is it available on Spotify? [N/Y]')
+    @music_albums = MusicAlbum.new(publish_date, on_spotify)
+    puts "Music album created succesfully \n"
+  end
 
   def add_item_game()
     multiplayer = input_getter('Please enter the multiplayer: ')

@@ -64,7 +64,7 @@ class Storage
     file.each do |obj|
       name = obj['name']
       genre = Genre.new(name)
-      app.genres << author
+      app.genres << genre
     end
   end
 
