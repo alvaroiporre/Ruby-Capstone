@@ -1,3 +1,4 @@
+require_relative 'author'
 require 'date'
 
 class Item
@@ -28,5 +29,10 @@ class Item
   def add_label(label_name, label_color)
     label = Label.new(label_name, label_color)
     label.add_item(self)
+  end
+
+  def add_author(first_name, last_name)
+    author = Author.new(first_name, last_name)
+    author.add_item(self)
   end
 end
