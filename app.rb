@@ -30,6 +30,20 @@ class App
     print msj
     is_number ? gets.chomp.to_i : gets.chomp
   end 
+
+  def inputs(item)
+    label = input_getter('Enter a label name: ')
+    color = input_getter('Enter a label color: ')
+    genre = input_getter('Enter a genre: ')
+    first_name = input_getter('Author first_name: ')
+    last_name = input_getter('Author last_name: ')
+    item.add_author(first_name, last_name)
+    item.add_genre(genre)
+    item.add_label(label, color)
+    @labels << item.label
+    @authors << item.author
+    @genre << item.genre
+  end
   
   def list_all_books
     if @books.empty?
