@@ -45,6 +45,29 @@ class Storage
     end
   end
 
+  def retrive_music_albums(app)
+    file = read('./storage/music_albums.json')
+    return if file.nil?
+
+    file.each do |obj|
+      publish_date = obj['publish_date']
+      on_spotify = obj['on_spotify']
+      album = MusicAlbum.new(Date.new(publish_date), on_spotify)
+      app.music_albums << album
+    end
+  end
+
+  def retrive_genres(app)
+    file = read('./storage/genres.json')
+    return if file.nil?
+
+    file.each do |obj|
+      name = obj['name']
+      genre = Genre.new(name)
+      app.genres << genre
+    end
+  end
+
   def retrieve_authors(app)
     file = read('./storage/authors.json')
     return if file.nil?
@@ -79,6 +102,8 @@ class Storage
   def retrieve_data(app)
     retrieve_books(app)
     retrieve_games(app)
+    retrive_genres(app)
+    retrive_music_albums(app)
   end
 
   def create_file(array, name)

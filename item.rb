@@ -2,7 +2,7 @@ require_relative 'author'
 require 'date'
 
 class Item
-  attr_accessor :genre, :author, :label
+  attr_accessor :genre, :author, :label, :archived
   attr_reader :publish_date
 
   def initialize(publish_date)
@@ -19,10 +19,10 @@ class Item
     before = Date.parse(publish_date.to_s)
     difference = (now - before).to_i
     difference_year = difference / 365
-    difference_year < 10
+    difference_year > 10
   end
 
-  def move_to_archive()
+  def move_to_archive
     @archived = can_be_archived?
   end
 
