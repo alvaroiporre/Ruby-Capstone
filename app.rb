@@ -29,7 +29,7 @@ class App
   def input_getter(msj, is_number: false)
     print msj
     is_number ? gets.chomp.to_i : gets.chomp
-  end 
+  end
 
   def inputs(item)
     label = input_getter('Enter a label name: ')
@@ -44,7 +44,7 @@ class App
     @authors << item.author
     @genre << item.genre
   end
-  
+
   def list_all_books
     if @books.empty?
       puts 'There are not books created yet'

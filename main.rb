@@ -16,5 +16,13 @@ puts 'Welcome to Catalog of my things!'
 includde Main_methods
 
 def read_files(app)
-    @app.storage.retrieve_data(app)
+  @app.storage.retrieve_data(app)
+end
+
+def write_files
+  @app.storage.create_file(@app.games, 'games.json')
+  @app.storage.create_file(@app.authors, 'authors.json')
+  @app.storage.create_file(@app.books, 'books.json')
+  @app.storage.create_file(@app.labels, 'labels.json')
+  @app.storage.create_file(@app.music_albums, 'music_albums.json')
 end
