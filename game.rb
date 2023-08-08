@@ -11,7 +11,7 @@ class Game < Item
 
   def can_be_archived?
     now = Date.today
-    before = Date.parse(last_played_at.to_s)
+    before = Date.parse(publish_date.to_s)
     difference = (now - before).to_i
     difference_year = difference / 365
     super && difference_year > 2
