@@ -22,6 +22,10 @@ class App
     }
   end
 
+  def trigger(int)
+    send(@functions[int])
+  end
+  
   def list_all_books
     if @books.empty?
       puts 'There are not books created yet'
