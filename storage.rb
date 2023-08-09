@@ -13,7 +13,7 @@ class Storage
   end
 
   def retrieve_games(app)
-    file = read('./storage/games.json')
+    file = read('games.json')
     return if file.nil?
 
     file.each do |obj|
@@ -32,7 +32,7 @@ class Storage
   end
 
   def retrieve_books(app)
-    file = read('./storage/books.json')
+    file = read('books.json')
     return if file.nil?
 
     file.each do |obj|
@@ -51,7 +51,7 @@ class Storage
   end
 
   def retrieve_authors(app)
-    file = read('./storage/authors.json')
+    file = read('authors.json')
     return if file.nil?
 
     file.each do |obj|
@@ -63,7 +63,7 @@ class Storage
   end
 
   def retrieve_labels(app)
-    file = read('./storage/labels.json')
+    file = read('labels.json')
     return if file.nil?
 
     file.each do |obj|
@@ -77,6 +77,8 @@ class Storage
   def retrieve_data(app)
     retrieve_books(app)
     retrieve_games(app)
+    retrieve_authors(app)
+    retrieve_labels(app)
   end
 
   def create_file(array, name)
@@ -85,7 +87,7 @@ class Storage
       array_hash << item_to_json(item)
     end
     json = array_hash.to_json
-    File.write("./#{name}", json)
+    File.write("#{name}", json)
   end
 
   def item_to_json(item)
