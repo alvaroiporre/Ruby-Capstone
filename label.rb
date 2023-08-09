@@ -12,6 +12,6 @@ class Label
 
   def add_item(item)
     @items << item if @items.include?(item) == false
-    item.label = self
+    item.add_label(@title, @color)
   end
 end
