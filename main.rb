@@ -1,6 +1,6 @@
 require './game'
 require './author'
-require_relative 'app'
+require './app'
 require './item'
 require './music_album'
 require './genre'
@@ -22,6 +22,7 @@ def write_files
   @app.storage.create_file(@app.books, 'books.json')
   @app.storage.create_file(@app.labels, 'labels.json')
   @app.storage.create_file(@app.music_albums, 'music_albums.json')
+  @app.storage.create_file(@app.genres, 'genres.json')
 end
 
 def main

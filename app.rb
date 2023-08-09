@@ -138,8 +138,8 @@ class App
   end
 
   def add_item_game()
-    multiplayer = input_getter('Please enter the multiplayer: ')
-    last_played_at = input_getter('Please enter the date of the last played : ')
+    multiplayer = input_getter('Is the game multiplayer: [N/Y]')
+    last_played_at = input_getter('Please enter the date of the last played (yyyy-mm-dd): ')
     publish_date = input_getter('published date (yyyy-mm-dd): ')
     @games << Game.new(Date.new(publish_date.to_i), multiplayer, Date.new(last_played_at.to_i))
     inputs(@games.last)
