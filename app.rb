@@ -22,6 +22,38 @@ class App
     }
   end
 
+  def options
+    puts ['', 'Please choose an option by entering a number:']
+    puts ['1 - List all books', '2 - List all music albums']
+    puts ['3 - List of games', '4 - List all genres', '5 - List all labels']
+    puts ['6 - List all authors', '7 - Add a book']
+    puts ['8 - Add a music album', '9 - Add a game']
+    puts ['10 - Exit']
+  end
+
+  def trigger(int)
+    send(@functions[int])
+  end
+
+  def input_getter(msj, is_number: false)
+    print msj
+    is_number ? gets.chomp.to_i : gets.chomp
+  end
+
+  def inputs(item)
+    label = input_getter('Enter a label name: ')
+    color = input_getter('Enter a label color: ')
+    genre = input_getter('Enter a genre: ')
+    first_name = input_getter('Author first_name: ')
+    last_name = input_getter('Author last_name: ')
+    item.add_author(first_name, last_name)
+    item.add_genre(genre)
+    item.add_label(label, color)
+    @labels << item.label
+    @authors << item.author
+    @genres << item.genre
+  end
+
   def list_all_books
     if @books.empty?
       puts 'There are not books created yet'
@@ -96,15 +128,17 @@ class App
   def add_music_album
     publish_date = input_getter('enter the published date (yyyy-mm-dd): ')
     on_spotify = input_getter('Is it available on Spotify? [N/Y]')
-    @music_albums = MusicAlbum.new(publish_date, on_spotify)
+    @music_albums << MusicAlbum.new(publish_date, on_spotify)
+    inputs(@music_albums.last)
     puts "Music album created succesfully \n"
   end
 
   def add_item_game()
-    multiplayer = input_getter('Please enter the multiplayer: ')
-    last_played_at = input_getter('Please enter the date of the last played : ')
+    multiplayer = input_getter('Is the game multiplayer: [N/Y]')
+    last_played_at = input_getter('Please enter the date of the last played (yyyy-mm-dd): ')
     publish_date = input_getter('published date (yyyy-mm-dd): ')
     @games << Game.new(Date.new(publish_date.to_i), multiplayer, Date.new(last_played_at.to_i))
+    inputs(@games.last)
     puts ['Game created succesfully', '']
   end
 end

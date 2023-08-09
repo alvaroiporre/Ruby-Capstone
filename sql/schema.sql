@@ -5,9 +5,9 @@ CREATE TABLE item (
   id_genre int,
   id_label int,
   PRIMARY KEY (id),
-  CONSTRAINT fk_author_game FOREIGN KEY (id_author) REFERENCES author (id),
-  CONSTRAINT fk_genre_game FOREIGN KEY (id_genre) REFERENCES genre (id),
-  CONSTRAINT fk_label_game FOREIGN KEY (id_label) REFERENCES label (id)
+  CONSTRAINT fk_author_item FOREIGN KEY (id_author) REFERENCES author (id),
+  CONSTRAINT fk_genre_item FOREIGN KEY (id_genre) REFERENCES genre (id),
+  CONSTRAINT fk_label_item FOREIGN KEY (id_label) REFERENCES label (id)
 );
 
 CREATE TABLE book (
@@ -41,16 +41,10 @@ CREATE TABLE genre (
   id SERIAL, 
   name VARCHAR(150), 
   PRIMARY KEY (id)
-  );
+);
     
 CREATE TABLE music_album (
-  id SERIAL,
+  id SERIAL REFERENCES item (id) NOT NULL,
   publish_date date,
-  id_author int,
-  id_genre int,
-  id_label int,
-  on_spotify BOOLEAN,
-  CONSTRAINT fk_author_game FOREIGN KEY (id_author) REFERENCES author (id),
-  CONSTRAINT fk_genre_game FOREIGN KEY (id_genre) REFERENCES genre (id),
-  CONSTRAINT fk_label_game FOREIGN KEY (id_label) REFERENCES label (id)
-  );
+  on_spotify BOOLEAN
+);
