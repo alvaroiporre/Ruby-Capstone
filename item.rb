@@ -26,17 +26,14 @@ class Item
   end
 
   def add_label(label_name, label_color)
-    label = Label.new(label_name, label_color)
-    label.add_item(self)
+    @label = Label.new(label_name, label_color)
   end
 
   def add_genre(genre)
-    new_genre = Genre.new(genre)
-    new_genre.add_item(self)
+    @genre = Genre.new(genre)
   end
 
   def add_author(first_name, last_name)
-    author = Author.new(first_name, last_name)
-    author.add_item(self)
+    @author = Author.new(first_name, last_name)
   end
 end
