@@ -1,35 +1,11 @@
-<a name="readme-top"></a>
+<a name="#readme-top"></a>
 
 <div align="center">
 
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
   <br/>
-  <br/>
-  <br/>
-  <h1><b>PROJECT NAME</b></h1><a name="about-project"></a>
+  <h1><b>Ruby Capstone</b></h1><a name="about-project"></a>
 </div>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-After you're finished please remove all the comments and instructions!
--->
 
 <!-- TABLE OF CONTENTS -->
 
@@ -38,8 +14,9 @@ After you're finished please remove all the comments and instructions!
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 PROJECT NAME ](#-project-name-)
   - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
+  - [Tech Stack ](#tech-stack-)
+  - [Key Features ](#key-features-)
+  - [🚀 Live Demo video](#live-demo)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -55,53 +32,40 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Project Name <a name="about-project"></a>
+# 📖 Ruby capstone <a name="about-project"></a>
 
-> The **ProjectName** something about the project.
+> The **Ruby Capstone**, this project is a console app that helps you to keep a record of
+ different types of things you own: books, music albums, movies, and games. Everything  
+ is based on the UML class diagram provided . The data will be stored in JSON files but
+  there is  also  a database with tables structure analogical to your program's class
+   structure.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Ruby
-
-<!-- <details>
-  <summary>Client</summary>
+<details>
+<summary>Ruby</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
   </ul>
 </details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details> -->
-
-<!-- <details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details> -->
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-<!-- - Create My own Enumerable.
-- Use of Ruby's best practices.
-- Use of Gitflow.
-- Use of linters. -->
+- **Comand line interface**
+- **Respect for the SOLID principles**
+- **SQL schema available**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- - Not available
 
-## 🚀 Live Demo <a name="live-demo"></a> -->
+🚀 Live Demo video<a name="live-demo">
 
-<!-- - [Live Demo Link](<replace-with-your-deployment-URL>)
+- [Live Demo video](https://drive.google.com/file/d/1DxKsRziT600tsp973MRVOPY3R8qMgxQz/view)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
@@ -125,7 +89,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/......
+  git clone https://github.com/alvaroiporre/Ruby-Capstone......
 ```
 
 ### Install
@@ -152,17 +116,6 @@ To run tests, run the following command:
 rubocop
 ```
 
-<!-- ### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,11 +129,20 @@ Example:
 - Twitter: [@alvaro.iporre](https://twitter.com/Alvaro41065582)
 - LinkedIn: [Álvaro Iporre](https://www.linkedin.com/in/alvaroiporre/)
 
-<!-- 👤 **Therese Tuyisabe**
+👤 **Mohamed Gamil Eldimardash**
 
-- GitHub: [@theresetuyi](https://github.com/theresetuyi)
-- Twitter: [@THERESETUYISAB2](https://twitter.com/THERESETUYISAB2)
-- LinkedIn: [therese-tuyisabe](https://www.linkedin.com/in/therese-tuyisabe/) -->
+- GitHub: [@github](https://github.com/MMGGYY66)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohamed-eldimardash-0023a3b5/)
+- Twitter: [twitter](https://twitter.com/MOHAMEDELDIMARd)
+- Facebook: [facebook](https://www.facebook.com/MOHAMED.ELDIMARDASH/)
+- StackOverflow: [stackoverflow](https://stackoverflow.com/users/13605630/mohamed-gamil-eldimardash)
+
+👤 **Pablo Gonzalez**
+
+- GitHub: [@PabloEGonz](https://github.com/PabloEGonz)
+- Twitter: [@PabloEzGon](https://twitter.com/PabloEzGon)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/pablo-ezequiel-gonz%C3%A1lez-ramos-b9b854265)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,19 +180,6 @@ If you like this project,please give it a ⭐️!
 
 I would like to thank Microverse for giving me the opportunity to learn and grow as a developer.
 
-<!-- FAQ (optional) -->
-<!--
-## ❓ FAQ <a name="faq"></a>
-
-- **Do I need to install any program before running this project?**
-
-  - [ ] **Yes, you need to install PostgreSQL**
-
-  <br>
-
-- **Can I use this project for my own purposes?**
-
-  - [ ] **Yes, you can.** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
