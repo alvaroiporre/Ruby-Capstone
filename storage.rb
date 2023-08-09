@@ -22,12 +22,15 @@ class Storage
       publish_date = obj['publish_date']
       label = obj['label']
       author = obj['author']
+      genre = obj['genre']
       game = Game.new(multiplayer, last_played_at, Date.new(publish_date.to_i))
       app.games << game
+      game.add_genre(genre['name'])
       game.add_label(label['title'], label['color'])
       game.add_author(author['first_name'], author['last_name'])
       app.authors << game.author unless app.authors.include?(game.author)
       app.labels << game.label unless app.labels.include?(game.label)
+      app.genres << game.genre unless app.genres.include?(game.genre)
     end
   end
 
@@ -41,12 +44,15 @@ class Storage
       cover_state = obj['cover_state']
       label = obj['label']
       author = obj['author']
+      genre = obj['genre']
       book = Book.new(Date.new(publish_date.to_i), publisher, cover_state)
       app.books << book
       book.add_label(label['title'], label['color'])
+      book.add_genre(genre['name'])
       book.add_author(author['first_name'], author['last_name'])
       app.authors << book.author unless app.authors.include?(book.author)
       app.labels << book.label unless app.labels.include?(book.label)
+      app.genres << book.genre unless app.genres.include?(book.genre)
     end
   end
 
@@ -100,10 +106,7 @@ class Storage
   def retrieve_data(app)
     retrieve_books(app)
     retrieve_games(app)
-    retrieve_authors(app)
-    retrieve_labels(app)
     retrive_music_albums(app)
-    retrive_genres(app)
   end
 
   def create_file(array, name)
