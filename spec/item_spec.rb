@@ -22,13 +22,13 @@ RSpec.describe Item do
 
   describe '#can_be_archived?' do
     it 'returns true if publish date is more than 10 years ago' do
-      past_date = Date.today - 11 * 365
+      past_date = Date.today - (11 * 365)
       item = Item.new(past_date)
       expect(item.can_be_archived?).to be(true)
     end
 
     it 'returns false if publish date is within 10 years' do
-      recent_date = Date.today - 9 * 365
+      recent_date = Date.today - (9 * 365)
       item = Item.new(recent_date)
       expect(item.can_be_archived?).to be(false)
     end
@@ -56,5 +56,4 @@ RSpec.describe Item do
       expect(item.label).to be_a(Label)
     end
   end
-
 end
