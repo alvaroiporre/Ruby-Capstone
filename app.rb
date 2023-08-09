@@ -1,9 +1,5 @@
-require_relative 'main_methods'
-
 class App
   attr_accessor :books, :games, :genres, :music_albums, :authors, :labels, :storage
-
-  include MainMethods
 
   def initialize()
     @storage = Storage.new('storage')

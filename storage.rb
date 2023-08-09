@@ -85,10 +85,19 @@ class Storage
     return if file.nil?
 
     file.each do |obj|
+      label = obj['label']
+      author = obj['author']
+      genre = obj['genre']
       publish_date = obj['publish_date']
       on_spotify = obj['on_spotify']
       album = MusicAlbum.new(Date.new(publish_date.to_i), on_spotify)
       app.music_albums << album
+      album.add_label(label['title'], label['color'])
+      album.add_genre(genre['name'])
+      album.add_author(author['first_name'], author['last_name'])
+      app.authors << album.author unless app.authors.include?(album.author)
+      app.labels << album.label unless app.labels.include?(album.label)
+      app.genres << album.genre unless app.genres.include?(album.genre)
     end
   end
 
